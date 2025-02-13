@@ -22,15 +22,15 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public ResponseEntity<Response> handleRrException(BusenessException e) {
 //        log.error("Handling BusenessException Error Message: {}", e.getMessage(), e);
-        return new ResponseEntity<>(ResponseFactory.getError(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(ResponseFactory.error(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Response> handleAll(Exception ex, WebRequest request) {
 //        log.error("Handling Exception Error Message: {}", ex.getMessage(), ex);
         if (StringUtils.isNotEmpty(ex.getMessage())) {
-            return new ResponseEntity<>(ResponseFactory.getError(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(ResponseFactory.error(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<>(ResponseFactory.getError(ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(ResponseFactory.error(ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

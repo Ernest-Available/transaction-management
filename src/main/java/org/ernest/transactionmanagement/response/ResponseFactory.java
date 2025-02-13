@@ -24,32 +24,27 @@ public class ResponseFactory {
         return getResponse(responseEnum.getCode(), responseEnum.getMessage(), (Object) null);
     }
 
-    public static <T> Response<T> getSuccess(String message, T data) {
+    public static <T> Response<T> success(String message, T data) {
         return getResponse(ResponseEnum.success.getCode(), message, data);
     }
 
-    public static <T> Response<T> getSuccessData(T data) {
+    public static <T> Response<T> success(T data) {
         return getResponse(ResponseEnum.success.getCode(), ResponseEnum.success.getMessage(), data);
     }
 
-
-    public static Response getSuccessMessage(String message) {
-        return getResponse(ResponseEnum.success.getCode(), message, (Object) null);
-    }
-
-    public static Response getSuccess() {
+    public static Response success() {
         return getResponse(ResponseEnum.success.getCode(), ResponseEnum.success.getMessage(), (Object) null);
     }
 
-    public static Response getError(String message) {
+    public static Response error(String message) {
         return getResponse(ResponseEnum.error.getCode(), message, (Object) null);
     }
 
-    public static Response getError() {
+    public static Response error() {
         return getResponse(ResponseEnum.error.getCode(), ResponseEnum.error.getMessage(), (Object) null);
     }
 
-    public static Response getError(ResponseEnum responseEnum) {
+    public static Response error(ResponseEnum responseEnum) {
         return getResponse(responseEnum.getCode(), responseEnum.getMessage(), (Object) null);
     }
 
