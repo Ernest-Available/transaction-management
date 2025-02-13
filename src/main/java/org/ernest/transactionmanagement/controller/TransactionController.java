@@ -4,6 +4,8 @@ package org.ernest.transactionmanagement.controller;
 import jakarta.validation.Valid;
 import org.ernest.transactionmanagement.entity.Transaction;
 import org.ernest.transactionmanagement.exception.BusenessException;
+import org.ernest.transactionmanagement.response.Response;
+import org.ernest.transactionmanagement.response.ResponseFactory;
 import org.ernest.transactionmanagement.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,9 +30,8 @@ public class TransactionController {
 //    }
 //
     @PostMapping
-    public ResponseEntity<Transaction> createIncident() {
-        throw  new BusenessException("message----");
-//        return ResponseEntity.ok(new Transaction());
+    public Response<Transaction> createIncident() {
+        return ResponseFactory.getSuccessData(new Transaction());
     }
 //
 //    @PutMapping("/{id}")
