@@ -15,7 +15,7 @@ public class Transaction {
     @TableId(type = IdType.ASSIGN_ID)  // 主键自增
     private Long id;
 
-    @NotNull(message = "The amount must not be empty.")
+    @NotNull(message = "The Amount must not be empty.")
     @Min(value = 0, message = "Amount must not be less than zero.")
     @Max(value = 9999999, message = "The amount cannot be greater than 99999.")
     private Long amount;  // 以分为单位
@@ -24,11 +24,11 @@ public class Transaction {
     @Size(min = 3, max = 50, message = "type must be between 3 and 50 characters")
     private String type;
 
-    @NotBlank(message = "Title cannot be blank")
+    @NotBlank(message = "payer cannot be blank")
     @Size(min = 3, max = 100, message = "payer must be between 3 and 100 characters")
     private String payer;
 
-    @NotBlank(message = "Title cannot be blank")
+    @NotBlank(message = "payee cannot be blank")
     @Size(min = 3, max = 100, message = "payee must be between 3 and 100 characters")
     private String payee;
 
