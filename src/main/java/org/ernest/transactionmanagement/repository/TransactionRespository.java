@@ -9,6 +9,6 @@ import org.ernest.transactionmanagement.entity.Transaction;
 @Mapper
 public interface TransactionRespository extends BaseMapper<Transaction> {
 
-    @Select("SELECT * FROM transaction")
+    @Select("SELECT * FROM transaction order by UPDATE_DATE desc")
     Page<Transaction> selectPage(Page<Transaction> page);
 }
