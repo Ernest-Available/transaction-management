@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration>
     <springProperty name="LOG_LEVEL" source="log.level"/>
-    <property name="PROJECT" value="incident-manage" />
-    <property name="ROOT" value="/Users/ernest/incident-management-system-ex/incident-management/logs" />
+    <property name="PROJECT" value="transaction-manage" />
+    <property name="ROOT" value="/Users/ernest/transaction-management-system-ex/transaction-management/logs" />
     <property name="FILESIZE" value="50MB" />
     <property name="MAXHISTORY" value="180" />
 
