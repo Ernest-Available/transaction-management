@@ -17,7 +17,7 @@ public class Transaction {
 
     @NotNull(message = "The Amount must not be empty.")
     @Min(value = 0, message = "Amount must not be less than zero.")
-    @Max(value = 9999999, message = "The amount cannot be greater than 99999.")
+    @DecimalMax(value = "1000000000000000", message = "The amount cannot be greater than 1000000000000000.", inclusive = true)
     private Long amount;  // 以分为单位
 
     @NotBlank(message = "type cannot be blank")
