@@ -114,7 +114,7 @@ public class TransacServiceImpl implements TransactionService {
         }
 
         ReentrantLock lock = locks.computeIfAbsent(id, k -> new ReentrantLock());
-        // 在缓存上自旋几次, 防止同时发起多个同样的查询
+        // 在缓存上自旋几次, 防止同时查库
         int SpinTimes = 5;
         while (SpinTimes > 0) {
             try {

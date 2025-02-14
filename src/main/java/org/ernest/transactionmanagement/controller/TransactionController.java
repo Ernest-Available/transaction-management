@@ -1,7 +1,6 @@
 package org.ernest.transactionmanagement.controller;
 
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import jakarta.validation.Valid;
 import org.ernest.transactionmanagement.entity.Transaction;
@@ -20,17 +19,7 @@ public class TransactionController {
     @Autowired
     private TransactionService transactionService;
 
-//    @GetMapping
-//    public ResponseEntity<Response<Page<Transaction>>> getAllTransactions(@RequestParam(value = "title", required = false) String title,
-//                                                                    @RequestParam(value = "page", required = false, defaultValue = "0") int page,
-//                                                                    @RequestParam(value = "size", required = false, defaultValue = "10") int size) {
-//        return ResponseEntity.ok(ResponseFactory.getSuccessData(TransactionService.getPage(title, PageRequest.of(page, size,Sort.by("createdAt").descending()))));
-//    }
-//    @GetMapping("/{id}")
-//    public ResponseEntity<Transaction> getTransactionInfo(@PathVariable(value = "id") Long id) {
-//        return ResponseEntity.ok(ResponseFactory.getSuccessData(TransactionService.findById(id)));
-//    }
-//
+
     @PostMapping
     public Response<Transaction> createTransaction(@Validated @RequestBody Transaction transaction) {
         return ResponseFactory.success(transactionService.createTransaction(transaction));

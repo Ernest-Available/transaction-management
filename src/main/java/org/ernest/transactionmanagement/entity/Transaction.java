@@ -1,10 +1,7 @@
 package org.ernest.transactionmanagement.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 import java.security.MessageDigest;
@@ -18,7 +15,7 @@ public class Transaction {
     @TableId(type = IdType.ASSIGN_ID)  // 主键自增
     private Long id;
 
-    @NotBlank(message = "The amount must not be empty.")
+    @NotNull(message = "The amount must not be empty.")
     @Min(value = 0, message = "Amount must not be less than zero.")
     @Max(value = 9999999, message = "The amount cannot be greater than 99999.")
     private Long amount;  // 以分为单位
@@ -35,7 +32,7 @@ public class Transaction {
     @Size(min = 3, max = 100, message = "payee must be between 3 and 100 characters")
     private String payee;
 
-    @Max(value = 500,message = "Description must not exceed five hundred characters.")
+    @Size(max = 500,message = "Description must not exceed five hundred characters.")
     private String description;
 
     @TableField(fill = FieldFill.INSERT)  // 插入时自动填充
