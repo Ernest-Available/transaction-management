@@ -71,7 +71,7 @@ public class TransactionControllerTest {
                 .thenReturn(pageResult);
 
         // Run the test
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/api/transaction")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/api/transactions")
                         .param("page", "0")
                         .param("size", "1")
                         .accept(MediaType.APPLICATION_JSON))
@@ -94,7 +94,7 @@ public class TransactionControllerTest {
                 .thenReturn(emptyPage);
 
         // Run the test
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/api/transaction")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/api/transactions")
                         .param("page", "0")
                         .param("size", "1")
                         .accept(MediaType.APPLICATION_JSON))
@@ -124,7 +124,7 @@ public class TransactionControllerTest {
         when(transactionService.getTransaction(1L)).thenReturn(sampleTransaction);
 
         // Run the test
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/api/transaction/1")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/api/transactions/1")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn();
@@ -141,7 +141,7 @@ public class TransactionControllerTest {
 
         // Run the test
         String jsonContent = getJsonContent(sampleTransaction);
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/api/transaction")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/api/transactions")
                         .content(jsonContent)
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
@@ -160,7 +160,7 @@ public class TransactionControllerTest {
 
         // Run the test
         String jsonContent = getJsonContent(sampleTransaction);
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.put("/api/transaction/1")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.put("/api/transactions/1")
                         .content(jsonContent)
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
@@ -175,7 +175,7 @@ public class TransactionControllerTest {
     @Test
     public void testDeleteTransaction() throws Exception {
         // Run the test
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete("/api/transaction/1")
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.delete("/api/transactions/1")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn();
