@@ -83,7 +83,7 @@ public class TransacServiceImpl implements TransactionService {
             throw new BusenessException("Transaction not found");
         }
 
-        if (!Objects.equals(oldTransaction.calculateMD5(), new String(newTransaction.calculateMD5()))) {
+
             newTransaction.setId(oldTransaction.getId());
             transactionRespository.updateById(newTransaction);
             cacheManager.getCache(Constants.CACHE_NAME_SINGLE).evict(id);
@@ -98,7 +98,6 @@ public class TransacServiceImpl implements TransactionService {
             //再删一遍, 减少不一致
             cacheManager.getCache(Constants.CACHE_NAME_SINGLE).evict(id);
             cacheManager.getCache(Constants.CACHE_NAME_COLLECTIVE).clear();
-        }
         return newTransaction;
     }
 
